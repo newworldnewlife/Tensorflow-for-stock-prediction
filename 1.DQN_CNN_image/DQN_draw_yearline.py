@@ -1,5 +1,5 @@
 # coding: utf-8
-from __future__ import division
+from __future__ import division # 整数除法保留精确小数，否则仅保留整数
 # # 參考自 https://zhuanlan.zhihu.com/p/21477488
 
 # In[1]:
@@ -20,7 +20,9 @@ day_len = 15   # 每筆資料的日期天數
 
 stock = Share('2330.TW')
 today = datetime.date.today()
-stock_data = stock.get_historical('2011-01-01', '2016-08-22')
+stock_data = stock.get_historical('2011-01-01', '2016-08-22') 
+# 返回每日dict组成的list[{u'Volume': u'28720000', u'Symbol':u'YHOO', u'Adj_Close': u'35.83', 
+# u'High': u'35.89', u'Low': u'34.12', u'Date': u'2014-04-29', u'Close': u'35.83', u'Open': u'34.37'},....]
 stock_data2 = stock.get_historical('2010-01-01', '2016-08-22')#1 year before
 print '歷史資料筆數' , len(stock_data)
 stock_data.reverse() # 反轉資料
@@ -47,7 +49,7 @@ monthline={}#20days
 seasonline={}
 #def yearline()
 year2011=len(stock_data)-len(stock_data2)
-for i in xrange(0,len(stock_data)):
+for i in xrange(0,len(stock_data)): # xrange功能和range一样，但是是列表生成器，非直接生成列表
     year=0
     season=0
     month=0
